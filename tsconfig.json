@@ -8,5 +8,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "context/auth.js", "app/_layout.js", "app/(app)/_layout.js", "app/sign-in.js"  ]
 }
