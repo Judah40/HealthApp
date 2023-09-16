@@ -23,8 +23,9 @@ export default function AppLayout() {
   return (
 <Stack >
 <Stack.Screen name='index'/>
-<Stack.Screen name='patience'/>
-<Stack.Screen name='profile'/>
-<Stack.Screen name='appointment'/>
+<Stack.Screen name='patience' options={{title:"My Patients", headerStyle:{backgroundColor:"#4CAF50"}}}/>
+<Stack.Screen name='profile' options={{title:"My Profile", headerStyle:{backgroundColor:"#4CAF50"}}}/>
+<Stack.Screen name='appointment' options={{title:"Appointment", headerStyle:{backgroundColor:"#4CAF50"}}}/>
+<Stack.Screen name='calendar' options={{title:"My Calendar", headerStyle:{backgroundColor:"#4CAF50"}}}/>
 </Stack>    );
 }

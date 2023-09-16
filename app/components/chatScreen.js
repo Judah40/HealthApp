@@ -1,12 +1,15 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
-
-const chatScreen = () => {
+import { FontAwesome } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons';
+const chatScreen = ({name, img}) => {
   return (
-    <TouchableOpacity className="p-4 flex-row space-x-4">
+    <View className="p-4 flex-row space-x-4">
       {/**profile pic */}
 
-      <TouchableOpacity className="w-16 h-16 rounded-full bg-gray-300 "></TouchableOpacity>
+      <TouchableOpacity className="w-16 h-16 rounded-full bg-gray-300 items-center justify-center ">
+      <Image source={{uri:`${img}`}} className="w-12 h-12 items-center justify-center"/>
+      </TouchableOpacity>
 
       {/**patient name */}
 
@@ -16,13 +19,21 @@ const chatScreen = () => {
 
         {/**name */}
 
-        <Text className="text-lg font-semibold">Judah Alvin Dore</Text>
+        <Text className="text-lg text-green-500 font-semibold">{name}</Text>
       </View>
 
-      <View>
-      
+      {/**chat and phone call */}
+      <View className="flex-1 w-full flex-row items-center justify-end space-x-6">
+        {/**phone call */}
+        <TouchableOpacity>
+          <FontAwesome name="phone" size={35} color="#4CAF50" />
+        </TouchableOpacity>
+        {/**chat */}
+        <TouchableOpacity>
+          <Entypo name="chat" size={35} color="blue" />
+        </TouchableOpacity>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

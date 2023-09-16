@@ -1,9 +1,14 @@
-import { View, Text } from "react-native";
-import React, { useEffect, useLayoutEffect } from "react";
+import { View, Text, FlatList } from "react-native";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "expo-router";
 import ChatScreen from "../../components/chatScreen";
 import { getRandomUser } from "../../../data";
 const patience = () => {
+
+// states
+const [data,setData]= useState({})
+
+
   // hide header when screen loads
   const navigation = useNavigation();
   useLayoutEffect(() => {
@@ -14,7 +19,7 @@ const patience = () => {
     // get User from db
     getRandomUser()
       .then((res) => {
-        console.log(res);
+        setData(res);
       })
       .catch((err) => {
         console.log(err);
@@ -23,9 +28,15 @@ const patience = () => {
   return (
     <View className="flex-1 bg-gray-200 ">
       {/**user one */}
-      <View className="w-full h-24 bg-white">
-        <ChatScreen />
-      </View>
+      <FlatList
+        data={data}
+        renderItem={({ item }) => (
+          <View className="w-full h-24 bg-white mt-4">
+          <ChatScreen name={item.first_name} img={item.avatar} />
+        </View>
+        )}
+      />
+      
     </View>
   );
 };
