@@ -4,8 +4,9 @@ import { Stack } from 'expo-router'
 
 const _layout = () => {
   return (
-   <Stack>
+   <Stack screenOptions={{}}>
     <Stack.Screen name="index"/>
+    <Stack.Screen name="chat" />
    </Stack>
   )
 }
